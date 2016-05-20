@@ -1,0 +1,21 @@
+body {
+  background-image: url('/media/images/fondo.jpg');
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+nav {
+	border-radius: 10px;
+	box-shadow: 2px 2px 2px rgba(0,0,0,75);
+	background-image:-moz-linear-gradient(0% 22% 90deg, yellow, #780);
+	background-image:-webkit-gradient(linear, 0% 0%, 0% 70%, form(#780), to(yellow));
+	display: block;
+	margin: 0 auto 0px;
+	border: 1px solid #fb3958 ;
+	position: relative;
+	background-color: #9b6954  ;
+	font: 16px Tahoma, sans-serif;
+	text-align: center;
+	font-size: 25px;
+}

@@ -1,0 +1,70 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<title>{% block title %} Bienvenidos {% endblock %}</title>
+	
+		<link rel="stylesheet" type="text/css" href="/media/bootstrap/css/bootstrap.css">
+		<link rel="stylesheet" type="text/css" href="/media/bootstrap/css/bootstrap-responsive.css">
+		<link rel="stylesheet" type="text/css" href="/media/css/excite-bike/jquery-ui-1.10.3.custom.css">
+
+		<script src="/media/js/ajax.js"></script>
+		<script src="/media/js/jquery.js"></script>
+		<script src="/media/js/jquery-ui.js"></script>
+		<script src="/media/bootstrap/js/bootstrap.js"></script>
+		<style type="text/css">
+			body{
+				padding-top:60px;
+				padding-bottom: 40px;
+			}
+			.hero-unit{ padding-top: 39px;}
+			.sidebar-nav{ padding: 9px;}
+		</style>	
+</head>
+<body>
+	<div class="navbar navbar-inverse navbar-fixed-top">
+		<div class="navbar-inner">
+			<a class ="brand" href="{% url 'vista_principal' %}"> Inicio </a>
+			<ul class = "nav">
+			<a class="btn btn-success" href="{% url 'vista_agregar_marca' %}"> Agregar Marca </a>
+			<a class="btn btn-success" href="{% url 'vista_agregar_categoria' %}"> Agregar Categoria </a>
+			<a class="btn btn-primary" href="{% url 'vista_contacto' %}"> Contacto </a>
+			<a class="btn btn-primary" href="{% url 'vista_registro' %}"> Registrarse </a>
+			<a class="btn btn-warning" href="/productos/page/1"> Mostrar Lista de Productos </a>
+			<!--- <a class="btn btn-inverse" href="{% url 'vista_productos' %}"> Listar </a> ---->
+			{% if user.is_authenticated %}
+			<a class="btn btn-info" href="{% url 'vista_logout' %}"> Cerrar Sesion </a>
+			{% else %}	
+			<a class="btn btn-info" href="{%url 'vista_login' %}"> Iniciar sesion </a>
+			{% endif %}	
+		</div>
+	</div>
+	<div class="container-fluid">
+		<div class="row-fluid">
+			<div class="span9">
+				<div class="hero-unit">
+					{% block content %}
+					{% endblock %}
+				</div>
+			</div>
+			<div class="span3">
+				<div class="well sidebar-nav">
+					<li class ="nav-header">Mi catalogo </li>
+					<br>
+					<h4>Información</h4>
+					<div class="alert alert-info">
+						<h5>Mi catalogo Vitual</h5>
+						<p><b>Direccion </b> : Cra 1 # 12-100</p>
+						<p><b>Telefono </b> : 839 3131</p>
+						<p> 313 200 0231</p>
+						<p> Popayán - Cauca </p>
+					</div>
+					<div align="center">
+						<img src="/media/images/python.jpg">
+					</div>
+				</div>
+			</div>
+			<br>
+		</div>	
+	</div>		
+</body>
+</html>

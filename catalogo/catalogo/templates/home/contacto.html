@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block title %}
+	Contactanos
+{% endblock %}
+
+{% block content %}	
+	{% if info_enviado %}
+	<h2>Gracias por tu informacion!</h2>
+	<br>
+	<h3>La informacion que enviaste fue la siguiente</h3>
+	<p>Tu email: {{ email }} </p>
+	<p>Tu pais:  {{ country }} </p>
+	<p>Tu sexo:  {{ sex }} </p>
+	<p>Tu edad:  {{ age }} </p>
+	{% else %}	
+	<form action="." method = "POST">
+		{% csrf_token %}
+		{{ form.as_p }}
+	<input class="btn btn-success" type = "submit" value = "submit"/>
+	</form>
+	{% endif %} 
+{% endblock %}
+
